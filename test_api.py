@@ -1,0 +1,19 @@
+
+from dotenv import load_dotenv
+from openai import OpenAI
+
+load_dotenv()
+
+client = OpenAI()
+
+try:
+    response = client.responses.create(
+        model="gpt-4.1-mini",
+        input="Hello! Introduce yourself as an AI assistant."
+    )
+
+    print("\nAI RESPONSE:")
+    print(response.output_text)
+
+except Exception as e:
+    print("API ERROR:", e)
